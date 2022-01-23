@@ -5,10 +5,12 @@ import { addTask } from "../actions";
 import { pauseALLTasks } from "../actions";
 
 export default function AddTaskInputs() {
+  // FetchData();
   const [TaskTitle, setTaskTitle] = useState("");
+  const [error, setError] = useState("");
   const dispatch = useDispatch();
 
-  const tasks = useSelector((state) => state.tasks);
+  let tasks = useSelector((state) => state.tasks);
 
   const addItem = () => {
     if (TaskTitle !== "") {
@@ -20,9 +22,12 @@ export default function AddTaskInputs() {
               Date.now()
             )
           ),
-        dispatch(addTask(uuid(), TaskTitle, Date.now())),
-        setTaskTitle("")
+        dispatch(addTask(uuid(), TaskTitle, 0, 0, 0)),
+        setTaskTitle(""),
+        setError("")
       );
+    } else {
+      setError("Please Type a task Title");
     }
   };
   return (
@@ -36,6 +41,7 @@ export default function AddTaskInputs() {
       <button className="btn-p" onClick={addItem}>
         + Add Task
       </button>
+      <p>{error}</p>
     </div>
   );
 }

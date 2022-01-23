@@ -1,66 +1,62 @@
 //action- what  i want to do
-export const addTask = (id, title, startTime) => {
+export const addTask = (id, title, min, sec, hours) => {
   return {
     type: "ADD_TASK",
     payload: {
       id,
       title,
-      startTime,
-
+      min,
+      sec,
+      hours,
       isPaused: true,
     },
   };
 };
 
-export const pauseTask = (id, pauseTime) => {
+export const pauseTask = (id, min, sec, hours) => {
   return {
     type: "PAUSE_TASK",
     payload: {
       id,
-
+      min,
+      sec,
+      hours,
       isPaused: true,
     },
   };
 };
 
-export const pauseALLTasks = (id, startTime) => {
+export const pauseALLTasks = (id, min, sec, hours) => {
   return {
     type: "PAUSE_ALL_TASKS",
     payload: {
       id,
-      startTime,
+      min,
+      sec,
+      hours,
       isPaused: true,
     },
   };
 };
 
-export const resumeTask = (id) => {
+export const resumeTask = (id, min, sec, hours) => {
   return {
     type: "RESUME_TASK",
     payload: {
       id,
+      min,
+      sec,
+      hours,
       isPaused: false,
     },
   };
 };
 
-export const startTimer = (time) => {
+export const deleteTask = (id) => {
   return {
-    type: "START_TIME",
+    type: "DELETE_TASK",
     payload: {
-      time,
-      isPaused: false,
+      id,
     },
-  };
-};
-/*************************************** */
-export const increment = () => {
-  return {
-    type: "INCREMENT",
-  };
-};
-export const decrement = () => {
-  return {
-    type: "DECREMENT",
   };
 };

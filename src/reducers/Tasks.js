@@ -26,7 +26,9 @@ const tasks = (state = { Tasks: [] }, action) => {
             return {
               ...task,
               isPaused: true,
-              pausingTime: action.payload.time,
+              min: action.payload.min,
+              sec: action.payload.sec,
+              hours: action.payload.hours,
             };
           } else {
             return task;
@@ -40,6 +42,9 @@ const tasks = (state = { Tasks: [] }, action) => {
           if (task.id === action.payload.id) {
             return {
               ...task,
+              min: action.payload.min,
+              sec: action.payload.sec,
+              hours: action.payload.hours,
               isPaused: false,
             };
           } else {
@@ -47,7 +52,13 @@ const tasks = (state = { Tasks: [] }, action) => {
           }
         }),
       };
-
+    case "DELETE_TASK":
+      return {
+        ...state,
+        Tasks: state.Tasks.filter((task) => {
+          return task.id !== action.payload.id;
+        }),
+      };
     default:
       return state;
   }
