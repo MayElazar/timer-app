@@ -60,7 +60,3 @@ export const deleteTask = (id) => {
     },
   };
 };
-<<<<<<< HEAD
-=======
-
->>>>>>> 3abd02c47d5740e3aa1591d6ef439b29e1634c23
