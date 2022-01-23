@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Total } from "./Timer";
 
 export default function TotalTime({ tasks }) {

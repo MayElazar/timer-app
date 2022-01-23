@@ -1,20 +1,15 @@
-import { Timer } from "easytimer.js";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { useState, useEffect } from "react";
 import { resumeTask } from "../actions";
 
 export const TaskTimer = (props) => {
-  const tasks = useSelector((state) => state.tasks);
   const [CurrentTime, setCurrentTime] = useState("");
   const [CurrentSEC, setCurrentSEC] = useState("");
   const [CurrentMIN, setCurrentMIN] = useState("");
   const [CurrentH, setCurrentH] = useState("");
-  // const [CurrentTime, setCurrentTime] = useState("00:00");
 
   const dispatch = useDispatch();
-  /******************************* */
-  //console.log(props);
 
   useEffect(() => {
     let interval;
